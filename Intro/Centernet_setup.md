@@ -1,52 +1,64 @@
-# Hand Detection VinAI Project
-Dataset-Hand-Label and Training Centernet 
-## Getting Started
-1. Cài đặt môi trường Anaconda
-2. Cài đặt Cuda 10.1 
-3. Cài đặt Independence packed 
-## Installation
-### 1. Cài đặt Anaconda 
-* [Cuda10.1]() 
-### 2. Cài đặt cuda 10.1
+# Hướng dẫn setup cho CenterNet
+## Tạo thư mục chứa CenterNet và cocoapi
 
 ```
-# Nếu đã cài Cuda phiên bản khác , có thể xóa và cài lại 
-sudo rm /etc/apt/sources.list.d/cuda*
-sudo apt remove --autoremove nvidia-cuda-toolkit
-sudo apt remove --autoremove nvidia-*
-```
-```
-# Them file PPA 
-sudo apt update
+%mkdir Vin 
 
-sudo add-apt-repository ppa:graphics-drivers/ppa
+%cd Vin 
 
-sudo apt-key adv --fetch-keys  http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+git clone https://github.com/xingyizhou/CenterNet.git
 
-sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
+git clone https://github.com/cocodataset/cocoapi.git
 
-sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda_learn.list'
 ```
+## Thay đổi file Functional
 ```
-# Cuda 10.1 
-sudo apt update
-sudo apt install cuda-10-1
-sudo apt install libcudnn7
-```
-```
-# Chinh sua file path và thêm câu lệnh này vào cuối dòng file profile  
-sudo gedit ~/.profile
+Cách 1: 
 
-if [ -d "/usr/local/cuda-10.1/bin/" ]; then
-    export PATH=/usr/local/cuda-10.1/bin${PATH:+:${PATH}}
-    export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-fi
-```
-```
-# Check 
-nvidia-smi
-nvcc  – version
+sed -i "1254s/torch\.backends\.cudnn\.enabled/False/g" "anaconda/envs/{tên của env}/lib/python3.6/site-packages/torc/nn/functional.py"
 
-/sbin/ldconfig -N -v $(sed ‘s/:/ /’ <<< $LD_LIBRARY_PATH) 2>/dev/null | grep libcudnn
+Cách 2:
+
+Tìm file torch/nn/functional.py , dòng "torch.batch_norm" và replace "torch.backends.cudnn.enabled" thành "False"
 ```
 
+## Cocoapi 
+```
+%cd cocoapi/PythonAPI
+
+make
+
+python setup.py install --user
+
+```
+
+## DCNv2 
+```
+%cd CenterNet/src/lib/models/networks/
+
+sudo rm -rf DCNv2
+
+git clone --recursive https://github.com/CharlesShang/DCNv2.git
+
+(or)
+git clone
+
+# Make file 
+%cd DCNv2/
+
+chmod +x make.sh
+
+./make.sh
+
+python setup.py build develop
+```
+
+## _ext 
+```
+%cd CenterNet/src/lib/external
+
+python setup.py install 
+
+python setup.py build_ext --inplace
+
+```
