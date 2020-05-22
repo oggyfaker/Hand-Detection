@@ -25,16 +25,14 @@ python setup.py install --user
 
 ## DCNv2 
 ```
-# Down new DCNv2 
-
+## Delete and download DCNv2 
 %cd /CenterNet/src/lib/models/networks/
 sudo rm -rf DCNv2
 git clone --recursive https://github.com/CharlesShang/DCNv2.git
 (or)
 git clone https://github.com/oggyfaker/DCNv2-CenterNet
 
-# Make file 
-
+## Build file 
 cd /DCNv2
 chmod +x make.sh
 ./make.sh
