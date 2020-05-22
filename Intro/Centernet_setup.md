@@ -3,7 +3,7 @@
 
 ```
 mkdir Vin 
-cd Vin 
+cd /Vin 
 git clone https://github.com/xingyizhou/CenterNet.git
 git clone https://github.com/cocodataset/cocoapi.git
 ```
@@ -18,7 +18,7 @@ Tìm file torch/nn/functional.py , dòng "torch.batch_norm" và replace "torch.b
 
 ## Cocoapi 
 ```
-cd cocoapi/PythonAPI
+cd /cocoapi/PythonAPI
 make
 python setup.py install --user
 ```
@@ -27,7 +27,7 @@ python setup.py install --user
 ```
 # Down new DCNv2 
 
-%cd CenterNet/src/lib/models/networks/
+%cd /CenterNet/src/lib/models/networks/
 sudo rm -rf DCNv2
 git clone --recursive https://github.com/CharlesShang/DCNv2.git
 (or)
@@ -35,7 +35,7 @@ git clone
 
 # Make file 
 
-cd DCNv2/
+cd /DCNv2
 chmod +x make.sh
 ./make.sh
 python setup.py build develop
@@ -43,7 +43,7 @@ python setup.py build develop
 
 ## _Ext 
 ```
-%cd CenterNet/src/lib/external
+cd /CenterNet/src/lib/external
 python setup.py install 
 python setup.py build_ext --inplace
 ```
