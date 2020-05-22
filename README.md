@@ -17,6 +17,6 @@ Project Hand Detection in VinAI. Follow the instruction and training by your cus
 
 #### 2. Run this command test 
 ```
-cd src 
+cd /src 
 python demo.py ctdet --demo webcam --load_model ../models/ctdet_coco_dla_2x.pth
 ```
