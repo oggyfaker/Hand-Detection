@@ -10,7 +10,7 @@ git clone https://github.com/cocodataset/cocoapi.git
 ## Thay đổi file Functional
 ```
 >>Cách 1<< 
-sed -i "1254s/torch\.backends\.cudnn\.enabled/False/g" "anaconda/envs/{tên của env}/lib/python3.6/site-packages/torc/nn/functional.py"
+sed -i "1254s/torch\.backends\.cudnn\.enabled/False/g" "/home/oggy/anaconda3/envs/CenterTrain/lib/python3.6/site-packages/torch/nn/functional.py"
 
 >>Cách 2<<
 Tìm file torch/nn/functional.py , dòng "torch.batch_norm" và replace "torch.backends.cudnn.enabled" thành "False"
