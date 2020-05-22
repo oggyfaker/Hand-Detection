@@ -31,7 +31,7 @@ python setup.py install --user
 sudo rm -rf DCNv2
 git clone --recursive https://github.com/CharlesShang/DCNv2.git
 (or)
-git clone
+git clone https://github.com/oggyfaker/DCNv2-CenterNet
 
 # Make file 
 
