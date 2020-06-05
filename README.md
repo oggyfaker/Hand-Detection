@@ -20,3 +20,18 @@ Project Hand Detection in VinAI. Follow the instruction and training by your cus
 cd /src 
 python demo.py ctdet --demo webcam --load_model ../models/ctdet_coco_dla_2x.pth
 ```
+
+## List To Do 
+### Dataset CoCo 
+* [x] Format data CMU Hand Dataset(Bbox)  
+* [ ] Change size of Bbox Training  
+* [ ] Format data CMU Hand Dataset (Skeleton)  
+* [ ] Change size of Bbox + Skeleton 
+### Dataset Passcal 
+* [x] Format data CMU Hand Dataset(Bbox)   
+* [ ] Change size of Bbox Training 
+* [ ] Format data CMU Hand Dataset (Skeleton)   
+* [ ] Change size of Bbox + Skeleton
+### Traing and Evaluate 
+* [x] Bbox
+* [ ] Skeleton 
