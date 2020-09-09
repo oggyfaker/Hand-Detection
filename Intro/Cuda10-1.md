@@ -25,6 +25,12 @@ wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installer
 
 sudo sh cuda_10.1.243_418.87.00_linux.run
 
+# Trường hợp lỗi không có gpu
+sudo gedit ~/.bashrc
+export PATH=/usr/local/cuda-10.1/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+source ~/.bashrc
+
 ```
 ## Test
 ```
